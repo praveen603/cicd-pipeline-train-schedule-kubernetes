@@ -7,6 +7,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                git clone --depth=1 https://github.com/praveen603/cicd-pipeline-train-schedule-kubernetes.git .
+                cd cicd-pipeline-train-schedule-kubernetes.git
                 echo 'Running build automation'
                 sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
